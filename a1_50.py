@@ -41,5 +41,3 @@ def primefactor_max(n=600851475143):
             n=n/j
         j+=1
     return max(L)
-
-print(primefactor_max())
