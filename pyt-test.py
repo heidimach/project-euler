@@ -11,3 +11,7 @@ print(a.multiples_sum(1000))
 
 ## Task 2: Even Fibonacci numbers
 print(a.fibonacci_sum(4*1e6,"Even"))
+
+## Task 3: Largest Prime Factor
+print(a.primefactor_max())
+
