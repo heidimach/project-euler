@@ -50,15 +50,15 @@ def palindrome_prod_max(n=2):
     
     while(pal>pal_min):
         pal_half=str(int(pal_half)-1)
-        # pal=1001, pal=999
-        if pal==(10**(n+1))+1:
+        
+        
+        
+        if pal==(10**(n-1))**2*10+1:
             pal=(10**(n-1))**2*10-1
-            print(pal)
             pal_half=str(pal)[0:round(len(str(pal))-1/2)]
         if bool(len(str(pal))%2):
-            # print(pal,pal_half,pal_half[:0:-1])
             pal=int(pal_half+pal_half[len(pal_half)-2::-1])
-            print(pal,pal_half)
+            print(pal)
         else:
             pal=int(pal_half+pal_half[::-1])
             print(pal)
@@ -66,5 +66,5 @@ def palindrome_prod_max(n=2):
     return pal
 
 #  91*99
-print(palindrome_prod_max(2))
+print(palindrome_prod_max(3))
 
