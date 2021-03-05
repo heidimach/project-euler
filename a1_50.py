@@ -4,13 +4,14 @@ Created on Thu Mar  4 15:28:51 2021
 
 @author: heidi
 """
+import math as math
 
 ## Task 1: Multiple of 3 and 5
 def multiples_sum(n=10,a=3,b=5):
     L=[i for i in range(1,n) if (i%a==0 or i%b==0)]
     return sum(L)
 
-def fibonacci_sum(B=4*1e6,value=None):
+def fibonacci_sum(B=10,value=None):
     prev=[1,2]
     if value=="Even":
         L=prev[1]
@@ -31,7 +32,7 @@ def fibonacci_sum(B=4*1e6,value=None):
             L=L+prev[1]
     return L
 
-def primefactor_max(n=600851475143):
+def primefactor_max(n=13195):
     L=[]
     j=2
     while(j<=n):
@@ -41,3 +42,29 @@ def primefactor_max(n=600851475143):
             n=n/j
         j+=1
     return max(L)
+
+def palindrome_prod_max(n=2):
+    pal_min=(10**(n-1))**2+1
+    pal=(10**n)**2-1
+    pal_half=str(pal)[0:round(len(str(pal))/2)]
+    
+    while(pal>pal_min):
+        pal_half=str(int(pal_half)-1)
+        # pal=1001, pal=999
+        if pal==(10**(n+1))+1:
+            pal=(10**(n-1))**2*10-1
+            print(pal)
+            pal_half=str(pal)[0:round(len(str(pal))-1/2)]
+        if bool(len(str(pal))%2):
+            # print(pal,pal_half,pal_half[:0:-1])
+            pal=int(pal_half+pal_half[len(pal_half)-2::-1])
+            print(pal,pal_half)
+        else:
+            pal=int(pal_half+pal_half[::-1])
+            print(pal)
+        
+    return pal
+
+#  91*99
+print(palindrome_prod_max(2))
+
