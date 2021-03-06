@@ -10,11 +10,13 @@ import a1_50 as a
 print(a.multiples_sum(1000))
 
 ## Task 2: Even Fibonacci numbers
-print(a.fibonacci_sum(4*1e6,"Even"))
+print(a.fibonacci_sum_even(4*1e6))
 
 ## Task 3: Largest Prime Factor
-print(a.primefactor_max())
+print(a.primefactor_max(600851475143))
 
 ## Task 4: Palindrome
 print(a.palindrome_prod_max(3))
 
+## Task 5: Smallest multiple
+print(a.smallest_multiple(20))

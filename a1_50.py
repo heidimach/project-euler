@@ -10,24 +10,12 @@ def multiples_sum(n=10,a=3,b=5):
     L=[i for i in range(1,n) if (i%a==0 or i%b==0)]
     return sum(L)
 
-def fibonacci_sum(B=10,value=None):
+def fibonacci_sum_even(B=10):
     prev=[1,2]
-    if value=="Even":
-        L=prev[1]
-        while sum(prev)<B:
-            prev=[prev[1],sum(prev)]
-            if (prev[1])%2==0:
-                L=L+prev[1]
-    elif value=="Odd":
-        L=prev[0]
-        while sum(prev)<B:
-            prev=[prev[1],sum(prev)]
-            if (prev[1])%2==1:
-                L=L+prev[1]
-    else:
-        L=sum(prev)
-        while sum(prev)<B:
-            prev=[prev[1],sum(prev)]
+    L=prev[1]
+    while sum(prev)<B:
+        prev=[prev[1],sum(prev)]
+        if (prev[1])%2==0:
             L=L+prev[1]
     return L
 
@@ -56,7 +44,7 @@ def palindrome_prod_max(n=2):
 
 def smallest_multiple(n=10):
     div={}
-    for i in range(n,1,-1):
+    for i in range(n+1):
         p=i
         j=2
         while j<=p:
@@ -64,12 +52,10 @@ def smallest_multiple(n=10):
             while(p%j==0):
                 p=p/j
                 div_num+=1
-            if i%j==0 and (j not in div or j in div and div_num>div[j]):
+            if i%j==0 and (j not in div or j in div and div_num>div[j]) and div_num!=0:
                 div[j]=div_num
             j+=1
     val=1
     for k in div.items():
         val=val*k[0]**k[1]
-        
     return val
-print(smallest_multiple(10))
