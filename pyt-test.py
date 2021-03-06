@@ -13,5 +13,8 @@ print(a.multiples_sum(1000))
 print(a.fibonacci_sum(4*1e6,"Even"))
 
 ## Task 3: Largest Prime Factor
-print(a.primefactor_max(600851475143))
+print(a.primefactor_max())
+
+## Task 4: Palindrome
+print(a.palindrome_prod_max(3))
 

@@ -44,27 +44,12 @@ def primefactor_max(n=13195):
     return max(L)
 
 def palindrome_prod_max(n=2):
-    pal_min=(10**(n-1))**2+1
-    pal=(10**n)**2-1
-    pal_half=str(pal)[0:round(len(str(pal))/2)]
-    
-    while(pal>pal_min):
-        pal_half=str(int(pal_half)-1)
-        
-        
-        
-        if pal==(10**(n-1))**2*10+1:
-            pal=(10**(n-1))**2*10-1
-            pal_half=str(pal)[0:round(len(str(pal))-1/2)]
-        if bool(len(str(pal))%2):
-            pal=int(pal_half+pal_half[len(pal_half)-2::-1])
-            print(pal)
-        else:
-            pal=int(pal_half+pal_half[::-1])
-            print(pal)
-        
-    return pal
-
-#  91*99
-print(palindrome_prod_max(3))
-
+    pal=0
+    L=0
+    for i in range(10**n-1,10**(n-1)-1,-1):
+        for j in range(10**n-1,i-1,-1):
+            pal=i*j
+            if str(pal)[:round(len(str(pal))/2)]==str(pal)[round(len(str(pal))/2):][::-1]:
+                if pal > L:
+                    L=pal
+    return L
