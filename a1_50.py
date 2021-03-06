@@ -91,7 +91,7 @@ def largest_product_in_series(n=4):
         if p_large<p_prd:
             p_large=p_prd
         i+=1
-    return
+    return p_large
 
 def special_pythagorean_triplet(n=1000):
     B=n
@@ -99,3 +99,16 @@ def special_pythagorean_triplet(n=1000):
         for a in range(1,b):
             if a+b+np.sqrt(a**2+b**2)==n:
                 return a*b*np.sqrt(a**2+b**2)
+
+def summation_of_primes(n=10):
+    i=2
+    primes=2
+    L=[j for j in range(2,int(n)) if j%i!=0]
+    while i < n:
+        if len(L)>0:
+            primes=primes+L[0]
+            i=L[0]
+        else:
+            break
+        L=[j for j in L if j%i!=0]
+    return primes

@@ -32,3 +32,6 @@ print(a.largest_product_in_series(13))
 
 ## Task 9: Special Pythagorean triplet - 31875000
 print(a.special_pythagorean_triplet(1000))
+
+## Task 10: Summation of primes - 142913828922
+print(a.summation_of_primes(2*1e6))
