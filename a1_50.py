@@ -59,3 +59,8 @@ def smallest_multiple(n=10):
     for k in div.items():
         val=val*k[0]**k[1]
     return val
+
+def sum_square_diff(n=10):
+    L=sum(range(n+1))**2
+    L1=sum([i**2 for i in range(n+1)])
+    return L-L1

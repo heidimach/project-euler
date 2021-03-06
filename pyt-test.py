@@ -20,3 +20,6 @@ print(a.palindrome_prod_max(3))
 
 ## Task 5: Smallest multiple
 print(a.smallest_multiple(20))
+
+## Task 6: Sum square difference
+print(a.sum_square_diff(100))
