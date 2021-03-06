@@ -23,3 +23,6 @@ print(a.smallest_multiple(20))
 
 ## Task 6: Sum square difference
 print(a.sum_square_diff(100))
+
+## Task 7: nth prime
+print(a.nth_prime_number(10001))
