@@ -4,6 +4,7 @@ Created on Thu Mar  4 15:28:51 2021
 
 @author: heidi
 """
+import numpy as np
 
 ## Task 1: Multiple of 3 and 5
 def multiples_sum(n=10,a=3,b=5):
@@ -91,3 +92,10 @@ def largest_product_in_series(n=4):
             p_large=p_prd
         i+=1
     return
+
+def special_pythagorean_triplet(n=1000):
+    B=n
+    for b in range(2,B):
+        for a in range(1,b):
+            if a+b+np.sqrt(a**2+b**2)==n:
+                return a*b*np.sqrt(a**2+b**2)

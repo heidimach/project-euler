@@ -29,3 +29,6 @@ print(a.nth_prime_number(10001))
 
 ## Task 8: Largest product in a series - 23514624000
 print(a.largest_product_in_series(13))
+
+## Task 9: Special Pythagorean triplet - 31875000
+print(a.special_pythagorean_triplet(1000))
