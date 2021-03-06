@@ -4,7 +4,6 @@ Created on Thu Mar  4 15:28:51 2021
 
 @author: heidi
 """
-import math as math
 
 ## Task 1: Multiple of 3 and 5
 def multiples_sum(n=10,a=3,b=5):
@@ -53,3 +52,24 @@ def palindrome_prod_max(n=2):
                 if pal > L:
                     L=pal
     return L
+
+
+def smallest_multiple(n=10):
+    div={}
+    for i in range(n,1,-1):
+        p=i
+        j=2
+        while j<=p:
+            div_num=0
+            while(p%j==0):
+                p=p/j
+                div_num+=1
+            if i%j==0 and (j not in div or j in div and div_num>div[j]):
+                div[j]=div_num
+            j+=1
+    val=1
+    for k in div.items():
+        val=val*k[0]**k[1]
+        
+    return val
+print(smallest_multiple(10))
