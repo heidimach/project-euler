@@ -35,3 +35,6 @@ print(a.special_pythagorean_triplet(1000))
 
 ## Task 10: Summation of primes - 142913828922
 print(a.summation_of_primes(2*1e6))
+
+## Task 11: Largest product in a grid - 70600674
+print(a.largest_product_in_grid(n=4))

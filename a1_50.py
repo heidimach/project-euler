@@ -138,26 +138,31 @@ def largest_product_in_grid(n=4):
     y=0
     x=0
     max_dir=0
-    print(grid.T)
+    
     while y<grid.shape[0]:
         while x<grid.shape[1]:
             hori=0
-            diag=0
             vert=0
-            if y+n-1<grid.shape[0] and x+n-1<grid.shape[1]:
-                dgn=[]
+            diag_up=0
+            diag_down=0
+                
+            if x+n-1<grid.shape[1] and y+n-1<grid.shape[0]:
+                dgn_down=[]
+                dgn_up=[]
                 for i in range(n):
-                    dgn.append(grid[i+x][i+y])
-                diag=np.prod(dgn)
+                    dgn_down.append(grid[y+i][x+i])
+                    dgn_up.append(grid[n+y-i-1][x+i])
+                diag_down=np.prod(dgn_down)
+                diag_up=np.prod(dgn_up)
+                    
+            if y<grid.shape[0] and x+n-1<grid.shape[1]:
+                hori=np.prod(grid[y][x:x+n])
                 
             if y+n-1<grid.shape[0] and x<grid.shape[1]:
                 vert=np.prod(grid.T[x][y:y+n])
                 
-            if y<grid.shape[0] and x+n-1<grid.shape[1]:
-                hori=np.prod(grid[y][x:x+n])
-                
-            if max_dir<max(hori,diag,vert):
-                max_dir=max(hori,diag,vert)
+            if max_dir<max(hori,vert,diag_down,diag_up):
+                max_dir=max(hori,vert,diag_down,diag_up)
             
             x+=1
         x=0
