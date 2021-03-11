@@ -169,35 +169,7 @@ def largest_product_in_grid(n=4):
     
     return max_dir
 
-# def high_divisible_triangular_number(n):
-#     ## fundamental theorem of arithmetic
-#     factors={}
-#     num=n
-#     for i in range(2,n):
-#         if num%i==0:
-#             factors[i]=1
-#             num=num/i
-#         while num%i==0:
-#             num=num/i
-#             factors[i]+=1
-#     powers=sorted([factor for (factor,power) in factors.items() for repeat in range(power)],reverse=True)
-#     primes=[2]
-#     k=3
-#     num=sum(factors.values())
-#     # Finding the first primes
-#     while len(primes)<sum(factors.values()):
-#         for prime in primes:
-#             if k%prime==0:
-#                 k+=1
-#                 break
-#         else:
-#             primes.append(k)
-#     for i in range(len(primes)):
-#         primes[i]=primes[i]**(powers[i]-1)
-#     return factors
-
 def high_divisible_triangular_number(n=10):
-    # 500 terms
     i=1
     divisors=0
     while divisors<n:
@@ -217,4 +189,3 @@ def high_divisible_triangular_number(n=10):
         i+=1
         divisors=np.prod([power+1 for power in factors.values()])
     return divisors,triangle, factors
-print(high_divisible_triangular_number())
