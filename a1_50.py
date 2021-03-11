@@ -59,7 +59,7 @@ def smallest_multiple(n=10):
     val=1
     for k in div.items():
         val=val*k[0]**k[1]
-    return val
+    return [val,div]
 
 def sum_square_diff(n=10):
     L=sum(range(n+1))**2
@@ -134,7 +134,6 @@ def largest_product_in_grid(n=4):
     20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
     20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
     01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48""".split('\n    ')])
-    
     y=0
     x=0
     max_dir=0
@@ -168,7 +167,54 @@ def largest_product_in_grid(n=4):
         x=0
         y+=1
     
-        
     return max_dir
 
-print(largest_product_in_grid(n=4))
+# def high_divisible_triangular_number(n):
+#     ## fundamental theorem of arithmetic
+#     factors={}
+#     num=n
+#     for i in range(2,n):
+#         if num%i==0:
+#             factors[i]=1
+#             num=num/i
+#         while num%i==0:
+#             num=num/i
+#             factors[i]+=1
+#     powers=sorted([factor for (factor,power) in factors.items() for repeat in range(power)],reverse=True)
+#     primes=[2]
+#     k=3
+#     num=sum(factors.values())
+#     # Finding the first primes
+#     while len(primes)<sum(factors.values()):
+#         for prime in primes:
+#             if k%prime==0:
+#                 k+=1
+#                 break
+#         else:
+#             primes.append(k)
+#     for i in range(len(primes)):
+#         primes[i]=primes[i]**(powers[i]-1)
+#     return factors
+
+def high_divisible_triangular_number(n=10):
+    # 500 terms
+    i=1
+    divisors=0
+    while divisors<n:
+        triangle=sum(range(i+1))
+        ## fundamental theorem of arithmetic
+        factors={}
+        num=triangle
+        j=2
+        while num > 1:
+            if num%j==0:
+                factors[j]=1
+                num=num/j
+            while num%j==0:
+                factors[j]+=1
+                num=num/j
+            j+=1
+        i+=1
+        divisors=np.prod([power+1 for power in factors.values()])
+    return divisors,triangle, factors
+print(high_divisible_triangular_number())

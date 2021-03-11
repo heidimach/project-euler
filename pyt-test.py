@@ -38,3 +38,5 @@ print(a.summation_of_primes(2*1e6))
 
 ## Task 11: Largest product in a grid - 70600674
 print(a.largest_product_in_grid(n=4))
+
+## Task 12: Highly divisible triangular number
