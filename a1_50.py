@@ -294,4 +294,26 @@ def large_sum(n=50):
     L=[int(string[i*n:(i+1)*n]) for i in range(100)]
     return str(sum(L))[:10]
 
-print(large_sum(n=50))
+def longest_collatz_sequence(L=1e6):
+    init=L
+    num=init
+    count=0
+    collatz={}
+    while num > 1:
+        if init==1:
+            collatz[num]=count
+            num-=1
+            init=num
+            count=0
+        elif init in collatz:
+            collatz[num]=count+collatz[init]
+            num-=1
+            init=num
+            count=0
+        elif init%2==0:
+            init=init/2
+        else:
+            init=3*init+1
+        count+=1
+    maximum = max(collatz, key=collatz.get) 
+    return maximum, collatz[maximum]

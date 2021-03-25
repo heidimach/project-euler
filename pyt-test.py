@@ -39,4 +39,12 @@ print(a.summation_of_primes(2*1e6))
 ## Task 11: Largest product in a grid - 70600674
 print(a.largest_product_in_grid(n=4))
 
-## Task 12: Highly divisible triangular number
+## Task 12: Highly divisible triangular number - 76576500
+print(a.high_divisible_triangular_number(500))
+
+# Task 13: large sum - 5537376230
+print(a.large_sum(50))
+
+# Task 14: Longest Collatz sequence
+print(a.longest_collatz_sequence())
+
