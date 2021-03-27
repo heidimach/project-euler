@@ -5,6 +5,7 @@ Created on Thu Mar  4 15:28:51 2021
 @author: heidi
 """
 import numpy as np
+import math
 
 ## Task 1: Multiple of 3 and 5
 def multiples_sum(n=10,a=3,b=5):
@@ -311,9 +312,76 @@ def longest_collatz_sequence(L=1e6):
             init=num
             count=0
         elif init%2==0:
-            init=init/2
+            init=init//2
         else:
             init=3*init+1
         count+=1
     maximum = max(collatz, key=collatz.get) 
     return maximum, collatz[maximum]
+
+def num_path_in_grid(n=2):
+    return math.factorial(n*2)//math.factorial(n)**2
+
+def power_digit_sum(n=15):
+    num=list(map(lambda x:int(x),str(2**n)))
+    return sum(num),num
+
+def number_letter_count(n=100):
+    L=0
+    ones = {
+        0:'', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 
+        10: 'ten', 11: 'eleven', 12: 'twelve',13: 'thirteen', 14: 'fourteen', 15: 'fifteen', 16: 'sixteen',17: 'seventeen', 18: 'eighteen', 19: 'nineteen'}
+    tens = {0:'',2: 'twenty', 3: 'thirty', 4: 'forty', 5: 'fifty', 6: 'sixty',7: 'seventy', 8: 'eighty', 9: 'ninety', 10:'hundred',100:'thousand'}
+
+    for i in range(1,n+1):
+        num=list(map(lambda x:int(x),str(i)))
+        if len(num)>3:
+            l=ones[num[0]]+tens[100]
+            L=L+len(l)
+        elif len(num)>2 and i%100==0:
+            l=ones[num[0]]+tens[10]
+            L=L+len(l)
+        elif len(num)>2 and int(str(num[1])+str(num[2])) in ones:
+            l=ones[num[0]]+tens[10]+'and'+ones[int(str(num[1])+str(num[2]))]
+            L=L+len(l)
+        elif len(num)>2 and (num[1] in tens and i%10==0):
+            l=ones[num[0]]+tens[10]+'and'+tens[num[1]]
+            L=L+len(l)
+        elif len(num)>2:
+            l=ones[num[0]]+tens[10]+'and'+tens[num[1]]+ones[num[-1]]
+            L=L+len(l)
+        elif len(num)>1 and i>=20:
+            l=tens[num[0]]+ones[num[1]]
+            L=L+len(l)
+        elif i<20:
+            l=ones[i]
+            L=L+len(l)
+    return L
+
+def maximum_path_sum():
+    tgle=[
+        [75],
+        [95,64],
+        [17, 47, 82],
+        [18, 35, 87, 10],
+        [20, 4, 82, 47, 65],
+        [19, 1, 23, 75, 3, 34],
+        [88, 2, 77, 73, 7, 63, 67],
+        [99, 65, 4, 28, 6, 16, 70, 92],
+        [41, 41, 26, 56, 83, 40, 80, 70, 33],
+        [41, 48, 72, 33, 47, 32, 37, 16, 94, 29],
+        [53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14],
+        [70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57],
+        [91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48],
+        [63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
+        [4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23]]
+    n=len(tgle)
+    L1=[]
+    for i in range(n):
+        for j in range(len(tgle[i])):
+            L=tgle[n-i-1]
+            L=tgle[n-i]
+            L2.append()
+            
+    return
+print(maximum_path_sum())
